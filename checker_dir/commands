@@ -1,0 +1,2 @@
+./push_swap $(cat test) | ./checker $(cat test)
+ruby -e "puts (-100..100).to_a.shuffle.join(' ')" > test
