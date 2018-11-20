@@ -6,7 +6,7 @@
 /*   By: jfinet <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/10 18:38:11 by jfinet            #+#    #+#             */
-/*   Updated: 2018/10/04 23:32:08 by jfinet           ###   ########.fr       */
+/*   Updated: 2018/11/19 14:13:09 by jfinet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ typedef struct	s_struct
 	int		pushed;
 	int		rest2sort;
 	int		call;
+	int		pivot_rotated;
 }				t_struct;
 
 void			algo_smalltab(t_struct *node, int data2sort);
@@ -67,7 +68,7 @@ int				pivot_selector2(int *tab, int size, int top);
 int				checkif_b_sorted(t_struct *node, int data2sort);
 int				checkif_a_sorted(t_struct *node, int data2sort);
 
-void			print_pile(int *pile_a, int *pile_b, t_struct *node);
+void			print_piles(t_struct *node);
 int				*new_tab(int size);
 int				get_max(int *tab, int data2sort);
 int				get_max2(int *tab, int data2sort, int max);

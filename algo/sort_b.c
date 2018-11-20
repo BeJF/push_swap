@@ -6,11 +6,26 @@
 /*   By: jfinet <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/28 19:59:46 by jfinet            #+#    #+#             */
-/*   Updated: 2018/10/04 23:26:55 by jfinet           ###   ########.fr       */
+/*   Updated: 2018/11/20 14:44:12 by jfinet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker.h"
+
+static int		check_rest2sort_b(t_struct *node, int size2sort, int pivot)
+{
+	int size_b;
+
+	size_b = node->size_b;
+	while (size2sort--)
+	{
+		if (node->pile_b[size_b - 1] >= pivot)
+			return (1);
+		size_b--;
+	}
+	return (0);
+}
+
 
 static void	sort_on_b3(t_struct *node, int data2sort, int pivot)
 {
@@ -38,6 +53,11 @@ static void	sort_on_b2(t_struct *node, int data2sort, int pivot)
 	while (data2sort > 0)
 	{
 		data = node->pile_b[node->size_b - 1];
+		if (check_rest2sort_b(node, data2sort, pivot) == 0)
+		{
+			node->rest2sort += data2sort;
+			return ;
+		}
 		if (data >= pivot)
 		{
 			push_on_a(node);
@@ -55,7 +75,9 @@ void		sort_on_b(t_struct *node, int data2sort)
 	int rest2sort;
 
 	set_nul(node);
+	push_on_a(node);
 	pivot = pivot_selector(node->pile_b, data2sort, node->size_b - 1);
+	printf("pivot b = %d\n", pivot);
 	if (data2sort == node->size_b)
 		node->call = 0;
 	sort_on_b2(node, data2sort, pivot);
@@ -66,6 +88,6 @@ void		sort_on_b(t_struct *node, int data2sort)
 		sort_on_a(node, node->pushed);
 	if (rest2sort == 0)
 		return ;
-	if (rest2sort > 0)
-		sort_on_b(node, rest2sort);
+	//if (rest2sort > 0)
+	//	sort_on_b(node, rest2sort);
 }

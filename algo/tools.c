@@ -6,11 +6,25 @@
 /*   By: jfinet <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/27 14:33:35 by jfinet            #+#    #+#             */
-/*   Updated: 2018/09/28 20:23:47 by jfinet           ###   ########.fr       */
+/*   Updated: 2018/11/19 15:08:55 by jfinet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker.h"
+
+/*int		check_rest2sort_a(t_struct *node, int size, int pivot)
+{
+	int size_a;
+
+	size_a = node->size_a;
+	while (size--)
+	{
+		if (node->pile[size_a - 1] <= pivot)
+			return (1);
+		size_a--;
+	}
+	return (0);
+}*/
 
 int		pivot_selector(int *tab, int size, int top)
 {
@@ -70,4 +84,5 @@ void	set_nul(t_struct *node)
 	node->rotated = 0;
 	node->rest2sort = 0;
 	node->call = 1;
+	node->pivot_rotated = 0;
 }
