@@ -6,7 +6,7 @@
 /*   By: jfinet <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/10 18:38:11 by jfinet            #+#    #+#             */
-/*   Updated: 2018/11/19 14:13:09 by jfinet           ###   ########.fr       */
+/*   Updated: 2018/11/20 17:32:39 by jfinet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void			algo4(t_struct *node);
 void			algo5data(t_struct *node, int max, int data2sort);
 void			cond_firstcall(t_struct *node, int max, int data2sort);
 void			sort_on_a(t_struct *node, int data2sort);
-void			sort_on_b(t_struct *node, int data2sort);
+void			sort_on_b(t_struct *node, int data2sort, int pivot_top);
 void			first_sort(t_struct *node, int data2sort);
 int				mk_piles(t_struct *node, int argc, char **argv);
 int				mk_piles_2args(t_struct *node, char **argv);

@@ -6,7 +6,7 @@
 /*   By: jfinet <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/28 19:08:35 by jfinet            #+#    #+#             */
-/*   Updated: 2018/11/20 14:18:48 by jfinet           ###   ########.fr       */
+/*   Updated: 2018/11/20 17:32:09 by jfinet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ static void	first_sort2(t_struct *node, int data2sort, int pivot)
 {
 	int data;
 
-	printf("pivot = %d\n", pivot);
+	//printf("pivot = %d\n", pivot);
 	while (data2sort > 0)
 	{
 		data = node->pile_a[node->size_a - 1];
@@ -44,7 +44,7 @@ static void	first_sort2(t_struct *node, int data2sort, int pivot)
 			node->rotated += data2sort;
 			if (node->pivot_rotated == 1)
 				rev_rotate_b(node);
-			print_piles(node);
+			//print_piles(node);
 			return ;
 		}
 		if (data > pivot)
@@ -74,7 +74,7 @@ static void	first_sort2(t_struct *node, int data2sort, int pivot)
 		rev_rotate_b(node);
 		//push_on_a(node);
 	}
-	print_piles(node);
+	//print_piles(node);
 }
 
 void		first_sort(t_struct *node, int data2sort)
@@ -97,5 +97,5 @@ void		first_sort(t_struct *node, int data2sort)
 		return ;
 	if (node->pushed >= 2)
 		first_sort(node, node->rotated);
-	sort_on_b(node, pushed);
+	sort_on_b(node, pushed, 1);
 }

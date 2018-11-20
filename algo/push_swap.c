@@ -6,7 +6,7 @@
 /*   By: jfinet <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/28 20:12:42 by jfinet            #+#    #+#             */
-/*   Updated: 2018/11/20 12:22:23 by jfinet           ###   ########.fr       */
+/*   Updated: 2018/11/20 19:09:19 by jfinet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,6 @@ int			main(int argc, char **argv)
 	}
 	//print_piles(node);
 	call_algo(node);
-	//print_piles(node);
+	print_piles(node);
 	free_all(node);
 }

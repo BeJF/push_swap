@@ -6,7 +6,7 @@
 /*   By: jfinet <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/28 19:02:35 by jfinet            #+#    #+#             */
-/*   Updated: 2018/11/20 14:52:00 by jfinet           ###   ########.fr       */
+/*   Updated: 2018/11/20 19:06:44 by jfinet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,12 +98,16 @@ static void	sort_on_a2(t_struct *node, int data2sort, int pivot)
 {
 	int data;
 
+	//printf("pivot on a = %d\n", pivot);
 	while (data2sort > 0)
 	{
 		data = node->pile_a[node->size_a - 1];
 		if (check_rest2sort_a(node, data2sort, pivot) == 0)
 		{
 			//node->rotated += data2sort;
+			//printf("going to return\n");
+			if (node->pivot_rotated == 1)
+				rev_rotate_b(node);
 			node->rest2sort += data2sort;
 			while (node->rotated--)
 				rev_rotate_a(node);
@@ -136,6 +140,9 @@ static void	sort_on_a2(t_struct *node, int data2sort, int pivot)
 		}
 		data2sort--;
 	}
+	//print_piles(node);
+	if (node->pivot_rotated == 1)
+		rev_rotate_b(node);
 	while (node->rotated--)
 		rev_rotate_a(node);
 }
@@ -154,5 +161,5 @@ void		sort_on_a(t_struct *node, int data2sort)
 		return ;
 	if (node->rest2sort > 1)
 		sort_on_a(node, node->rest2sort);
-	sort_on_b(node, pushed);
+	sort_on_b(node, pushed, 1);
 }
