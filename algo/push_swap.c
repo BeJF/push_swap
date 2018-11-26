@@ -6,7 +6,7 @@
 /*   By: jfinet <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/28 20:12:42 by jfinet            #+#    #+#             */
-/*   Updated: 2018/11/26 14:55:36 by jfinet           ###   ########.fr       */
+/*   Updated: 2018/11/26 18:08:13 by jfinet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,8 @@ int			main(int argc, char **argv)
 	if (!(node = (t_struct*)malloc(sizeof(t_struct))))
 		return (1);
 	set_nul(node);
+	if (argc == 1)
+		return (1);
 	if (argc == 2)
 		if (mk_piles_2args(node, argv) == 1)
 			return (put_error(node));

@@ -6,7 +6,7 @@
 /*   By: jfinet <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/01 13:55:10 by jfinet            #+#    #+#             */
-/*   Updated: 2018/10/06 15:51:15 by jfinet           ###   ########.fr       */
+/*   Updated: 2018/11/26 18:23:52 by jfinet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,14 +39,14 @@ int	only_nb_checker(char **argv, int arg)
 	z = 0;
 	while (argv[arg][z] != '\0')
 	{
-		z++;
 		if ((argv[arg][z] < '0' || argv[arg][z] > '9')
 		&& argv[arg][z] != '-' && argv[arg][z] != '\0'
 		&& argv[arg][z] != ' ' && argv[arg][z] != '+')
 			return (1);
-		if (argv[arg][z] == '-'
+		if ((argv[arg][z] == '-' || argv[arg][z] == '+')
 		&& (argv[arg][z + 1] < '0' || argv[arg][z + 1] > '9'))
 			return (1);
+		z++;
 	}
 	return (0);
 }
