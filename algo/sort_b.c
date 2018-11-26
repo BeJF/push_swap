@@ -6,7 +6,7 @@
 /*   By: jfinet <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/28 19:59:46 by jfinet            #+#    #+#             */
-/*   Updated: 2018/11/26 13:50:06 by jfinet           ###   ########.fr       */
+/*   Updated: 2018/11/26 14:51:45 by jfinet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,7 @@ static void	sort_on_b2(t_struct *node, int data2sort, int pivot)
 {
 	int data;
 
-	//if (data2sort == node->size_b)
-	//	node->call = 0;
-	if (data2sort < 15 && data2sort == node->size_b)//node->call == 0)
+	if (data2sort < 15 && data2sort == node->size_b)
 	{
 		algo3(node);
 		data2sort = 0;

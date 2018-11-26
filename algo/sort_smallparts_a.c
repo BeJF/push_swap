@@ -6,7 +6,7 @@
 /*   By: jfinet <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/26 14:11:33 by jfinet            #+#    #+#             */
-/*   Updated: 2018/11/26 14:16:21 by jfinet           ###   ########.fr       */
+/*   Updated: 2018/11/26 14:54:43 by jfinet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ static void	sort3data(t_struct *node)
 		sort3data2(node);
 }
 
-int	sort_smallparts_a(t_struct *node, int data2sort)
+int			sort_smallparts_a(t_struct *node, int data2sort)
 {
 	int *tab;
 	int top;

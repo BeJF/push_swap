@@ -6,11 +6,35 @@
 /*   By: jfinet <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/28 19:08:35 by jfinet            #+#    #+#             */
-/*   Updated: 2018/11/26 13:41:51 by jfinet           ###   ########.fr       */
+/*   Updated: 2018/11/26 14:50:18 by jfinet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker.h"
+
+static void	first_sort3(t_struct *node, int data2sort, int pivot, int data)
+{
+	if (data > pivot)
+	{
+		if (data2sort > 1)
+			rotate_a(node);
+		node->rotated++;
+	}
+	if (data <= pivot && data2sort != 0)
+	{
+		if (data != pivot)
+		{
+			push_on_b(node);
+			node->pushed++;
+		}
+		if (data == pivot)
+		{
+			push_on_b(node);
+			rotate_b(node);
+			node->pivot_rotated = 1;
+		}
+	}
+}
 
 static void	first_sort2(t_struct *node, int data2sort, int pivot)
 {
@@ -26,26 +50,7 @@ static void	first_sort2(t_struct *node, int data2sort, int pivot)
 				rev_rotate_b(node);
 			return ;
 		}
-		if (data > pivot)
-		{
-			if (data2sort > 1)
-				rotate_a(node);
-			node->rotated++;
-		}
-		if (data <= pivot && data2sort != 0)
-		{
-			if (data != pivot)
-			{
-				push_on_b(node);
-				node->pushed++;
-			}
-			if (data == pivot)
-			{
-				push_on_b(node);
-				rotate_b(node);
-				node->pivot_rotated = 1;
-			}
-		}
+		first_sort3(node, data2sort, pivot, data);
 		data2sort--;
 	}
 	if (node->pivot_rotated == 1)

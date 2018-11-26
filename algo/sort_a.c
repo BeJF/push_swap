@@ -6,7 +6,7 @@
 /*   By: jfinet <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/28 19:02:35 by jfinet            #+#    #+#             */
-/*   Updated: 2018/11/26 14:26:49 by jfinet           ###   ########.fr       */
+/*   Updated: 2018/11/26 14:53:48 by jfinet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,14 +27,11 @@ static void	sort_on_a3(t_struct *node, int data2sort, int pivot, int data)
 	}
 	if (data <= pivot && data2sort != 0)
 	{
+		push_on_b(node);
 		if (data != pivot)
-		{
-			push_on_b(node); //to check
 			node->pushed++;
-		}
 		if (data == pivot)
 		{
-			push_on_b(node); //to check
 			rotate_b(node);
 			node->pivot_rotated = 1;
 		}

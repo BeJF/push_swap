@@ -6,7 +6,7 @@
 /*   By: jfinet <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/19 12:04:05 by jfinet            #+#    #+#             */
-/*   Updated: 2018/11/19 12:17:35 by jfinet           ###   ########.fr       */
+/*   Updated: 2018/11/26 14:45:57 by jfinet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,13 @@ void	print_piles(t_struct *node)
 {
 	int size_a;
 	int size_b;
-   
+
 	size_a = node->size_a;
 	size_b = node->size_b;
-
 	printf("=> PILE A\n");
 	while (size_a--)
 		printf("|%d|\n", node->pile_a[size_a]);
 	printf("=> PILE B\n");
 	while (size_b--)
 		printf("|%d|\n", node->pile_b[size_b]);
-
 }
