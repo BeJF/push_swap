@@ -6,7 +6,7 @@
 /*   By: jfinet <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/10 18:38:11 by jfinet            #+#    #+#             */
-/*   Updated: 2018/11/20 17:32:39 by jfinet           ###   ########.fr       */
+/*   Updated: 2018/11/26 14:16:01 by jfinet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ typedef struct	s_struct
 }				t_struct;
 
 void			algo_smalltab(t_struct *node, int data2sort);
+int				sort_smallparts_a(t_struct *node, int data2sort);
 void			algo3(t_struct *node);
 void			algo4(t_struct *node);
 void			algo5data(t_struct *node, int max, int data2sort);
@@ -74,5 +75,7 @@ int				get_max(int *tab, int data2sort);
 int				get_max2(int *tab, int data2sort, int max);
 int				get_min(int *tab, int data2sort);
 void			set_nul(t_struct *node);
+int				check_rest2sort_a(t_struct *node, int size2sort, int pivot);
+int				check_rest2sort_b(t_struct *node, int size2sort, int pivot);
 
 #endif
