@@ -6,16 +6,35 @@
 /*   By: jfinet <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/10 14:31:56 by jfinet            #+#    #+#             */
-/*   Updated: 2018/10/04 23:32:26 by jfinet           ###   ########.fr       */
+/*   Updated: 2018/12/10 10:43:56 by jfinet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker.h"
 
+void	print_piles(t_struct *node, FILE *file)
+{
+	int size_a;
+	int size_b;
+
+	size_a = node->size_a;
+	size_b = node->size_b;
+	while (size_a--)
+		fprintf(file, "%d ", node->pile_a[size_a]);
+	fprintf(file, "\n");
+	while (size_b--)
+		fprintf(file, "%d ", node->pile_b[size_b]);
+	fprintf(file, "\n");
+}
+
+
 static int	read_instructions(t_struct *node)
 {
 	char	*line;
 	int		fd;
+	FILE	*file;
+
+	file = fopen("test0", "w");
 
 	fd = 0;
 	line = NULL;
@@ -25,7 +44,9 @@ static int	read_instructions(t_struct *node)
 		{
 			return (1);
 		}
+		print_piles(node, file);
 	}
+	fclose(file);
 	return (0);
 }
 

@@ -6,7 +6,7 @@
 /*   By: jfinet <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/01 13:55:10 by jfinet            #+#    #+#             */
-/*   Updated: 2018/11/26 18:23:52 by jfinet           ###   ########.fr       */
+/*   Updated: 2018/12/07 09:50:07 by jfinet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ int	arg_to_tab(t_struct *node, char **argv, int nb_data)
 			str[i] = *argv[1];
 			i++;
 			(argv[1]++);
-			if (i == 11)
+			if (i == 12)
 				return (1);
 		}
 		str[i] = '\0';

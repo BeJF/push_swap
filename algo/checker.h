@@ -6,7 +6,7 @@
 /*   By: jfinet <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/10 18:38:11 by jfinet            #+#    #+#             */
-/*   Updated: 2018/11/26 14:16:01 by jfinet           ###   ########.fr       */
+/*   Updated: 2018/12/07 08:50:19 by jfinet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,5 +77,6 @@ int				get_min(int *tab, int data2sort);
 void			set_nul(t_struct *node);
 int				check_rest2sort_a(t_struct *node, int size2sort, int pivot);
 int				check_rest2sort_b(t_struct *node, int size2sort, int pivot);
+int				get_median(int *pile, int len, int top);
 
 #endif
