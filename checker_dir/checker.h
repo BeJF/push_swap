@@ -6,7 +6,7 @@
 /*   By: jfinet <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/10 18:38:11 by jfinet            #+#    #+#             */
-/*   Updated: 2018/10/01 17:43:10 by jfinet           ###   ########.fr       */
+/*   Updated: 2018/12/12 16:02:39 by jfinet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ typedef struct	s_struct
 	int size_a;
 	int *pile_b;
 	int size_b;
+	int flag_visu;
 }				t_struct;
 
 int				get_next_line(int fd, char **line);

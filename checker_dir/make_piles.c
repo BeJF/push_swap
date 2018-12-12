@@ -6,7 +6,7 @@
 /*   By: jfinet <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/01 13:55:10 by jfinet            #+#    #+#             */
-/*   Updated: 2018/12/07 09:50:07 by jfinet           ###   ########.fr       */
+/*   Updated: 2018/12/12 18:36:20 by jfinet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,9 @@ int	count_arg(char **argv)
 		while (argv[1][z] == ' ' || argv[1][z] == 9
 		|| argv[1][z] == '-' || argv[1][z] == '+')
 			z++;
+		//while ((argv[1][z] < '0' || argv[1][z] > '9') 
+		//&& argv[1][z] != '\0')
+		//	z++;
 	}
 	return (nb_data);
 }
@@ -39,6 +42,8 @@ int	only_nb_checker(char **argv, int arg)
 	z = 0;
 	while (argv[arg][z] != '\0')
 	{
+		//if ((argv[arg][0] == '-' && argv[arg][1] == 'v')) //new
+		//	z += 2; //new
 		if ((argv[arg][z] < '0' || argv[arg][z] > '9')
 		&& argv[arg][z] != '-' && argv[arg][z] != '\0'
 		&& argv[arg][z] != ' ' && argv[arg][z] != '+')
@@ -111,9 +116,11 @@ int	mk_piles(t_struct *node, int argc, char **argv)
 	{
 		if (only_nb_checker(argv, argc - 1) == 1)
 			return (1);
+		printf("bug\n");
 		node->pile_a[size] = ft_atoi(argv[argc - 1]);
 		if (check_errors_atoi(node->pile_a[size], argv[argc - 1]) == 1)
 			return (1);
+		printf("bug1\n");
 		size++;
 		argc--;
 	}

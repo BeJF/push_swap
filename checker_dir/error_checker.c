@@ -6,7 +6,7 @@
 /*   By: jfinet <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/30 12:50:44 by jfinet            #+#    #+#             */
-/*   Updated: 2018/10/03 22:54:55 by jfinet           ###   ########.fr       */
+/*   Updated: 2018/12/12 18:59:02 by jfinet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,10 +42,15 @@ int	check_duplicates(t_struct *node)
 	while (z < size_a)
 	{
 		data = pile_a[z];
+		printf("data = %d\n", data);
 		while (i <= size_a)
 		{
 			if (data == pile_a[i] && i != z)
+			{
+				printf("data = %c\n", data);
+				printf("bug de merde\n");
 				return (1);
+			}
 			i++;
 		}
 		i = 0;
