@@ -13,7 +13,9 @@ speed = 0
 
 #get initials data
 lines = [line.rstrip('\n') for line in open('test0')]
+#print(lines)
 initial_pile = list(map(int,lines[0].split())) 
+print("initial_pile", initial_pile)
 size = len(initial_pile)
 #create_piles(size)
 max = max(initial_pile)
@@ -33,7 +35,13 @@ def update_pile_a(pile, data_height, data_width_ratio, size) :
 
     obj = 1
     size_pile = len(pile)
+    #if size_pile == 99 :
+     #   print(pile)
+    #if size_pile == 100 :
+     #   print(pile)
     y0 = 150
+    #print("size_pile = ", size_pile)
+    #print("size = ", size)
     while (size_pile < size) :
         y1 = y0 + data_height
         w.coords(pile_a[obj - 1], 0, 0, 0, 0)
@@ -104,9 +112,14 @@ def Start() :
     if start == 0 :
         start = 1
         Pause.set("Stop")
+        #display()
     elif start == 1 :
         start = 0
         Pause.set("Start")
+    elif start == 2 :
+        start = 0
+        Pause.set("Start")
+        display()
 
 def Stop() :
     global start
@@ -149,12 +162,11 @@ def update_piles(pile, i) :
         update_pile_a(pile, data_height, data_width_ratio, size)
     if i % mod == 0 :
         update_pile_b(pile, data_height, data_width_ratio, max_x1_a, size)
-        #w.update()
+        w.update()
     if speed < 0 :
         #w.after((-speed)/50)
         time.sleep((-speed)/50)
 
-lines = [line.rstrip('\n') for line in open('test0')]
 '''for line in lines :
     
     #transform the string into a list and convert the str into int
@@ -167,9 +179,9 @@ lines = [line.rstrip('\n') for line in open('test0')]
         data_width_ratio = (win_width - 200) / max / 2
         max_x1_a = data_width_ratio * max
     while start == 0 :
-        update_pile_a(pile, data_height, data_width_ratio, size)
+        if i == 1 :
+            update_pile_a(pile, data_height, data_width_ratio, size)
         w.update()
-        continue
     if i % mod == 1 :
         update_pile_a(pile, data_height, data_width_ratio, size)
     if i % mod == 0 :
@@ -183,23 +195,28 @@ lines = [line.rstrip('\n') for line in open('test0')]
 def display() :
 #create_piles(size)
     i = 1
+    global start
     for line in lines :
         pile = list(map(int,line.split())) 
         while start == 0 :
-            update_pile_a(pile, data_height, data_width_ratio, size)
+            if i == 1 :
+                #print("line = ", line)
+                update_pile_a(pile, data_height, data_width_ratio, size)
             w.update()
-            continue
+            #continue
         #if (speed >= 0) :
         update_piles(pile, i)
         #elif (speed < 0) :
             #w.after(500, update_piles(pile,i))
             #w.after((-speed)/50, update_piles(pile,i))
-        w.update()
+        #w.update()
         i += 1
     pile = list(map(int,lines[i - 3].split())) 
     update_pile_a(pile, data_height, data_width_ratio, size)
     pile = list(map(int,lines[i - 2].split())) 
     update_pile_b(pile, data_height, data_width_ratio, max_x1_a, size)
+    start = 2
+    Pause.set("Reset")
 
 
 
@@ -210,6 +227,7 @@ def display() :
 #update_pile_b(pile, data_height, data_width_ratio, max_x1_a, size)
 create_piles(size)
 display()
-Pause.set("Reset")
+#Pause.set("Reset")
+#start = 2
 
 master.mainloop()

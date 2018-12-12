@@ -6,7 +6,7 @@
 /*   By: jfinet <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/10 14:31:56 by jfinet            #+#    #+#             */
-/*   Updated: 2018/12/10 10:43:56 by jfinet           ###   ########.fr       */
+/*   Updated: 2018/12/12 09:21:51 by jfinet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,12 +40,11 @@ static int	read_instructions(t_struct *node)
 	line = NULL;
 	while (get_next_line(fd, &line))
 	{
-		if (call_instructions(line, node) == 1)
-		{
-			return (1);
-		}
 		print_piles(node, file);
+		if (call_instructions(line, node) == 1)
+			return (1);
 	}
+	print_piles(node, file);
 	fclose(file);
 	return (0);
 }
