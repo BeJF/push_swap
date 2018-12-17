@@ -1,26 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   testvisu.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jfinet <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/06/13 20:37:29 by jfinet            #+#    #+#             */
-/*   Updated: 2018/12/17 13:47:47 by jfinet           ###   ########.fr       */
+/*   Created: 2018/12/17 09:44:41 by jfinet            #+#    #+#             */
+/*   Updated: 2018/12/17 09:48:05 by jfinet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
+#include "stdio.h"
 
-void			*ft_memcpy(void *dst, const void *src, size_t n)
+int main(int argc, char **argv)
 {
-	//char		*cdst;
-	//const char	*csrc;
-
-	//cdst = (char*)dst;
-	//csrc = (const char*)src;
-	while (n--)
-		*dst++ = *src;
-		//*cdst++ = *csrc++;
-	return (dst);
+	int i = 0;
+	
+	while (argv[1][i])
+	{
+		printf("argv = %c\n", argv[1][i]);
+		i++;
+	}
 }

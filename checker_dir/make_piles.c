@@ -6,7 +6,7 @@
 /*   By: jfinet <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/01 13:55:10 by jfinet            #+#    #+#             */
-/*   Updated: 2018/12/12 18:36:20 by jfinet           ###   ########.fr       */
+/*   Updated: 2018/12/17 10:23:18 by jfinet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,11 +116,9 @@ int	mk_piles(t_struct *node, int argc, char **argv)
 	{
 		if (only_nb_checker(argv, argc - 1) == 1)
 			return (1);
-		printf("bug\n");
 		node->pile_a[size] = ft_atoi(argv[argc - 1]);
 		if (check_errors_atoi(node->pile_a[size], argv[argc - 1]) == 1)
 			return (1);
-		printf("bug1\n");
 		size++;
 		argc--;
 	}
