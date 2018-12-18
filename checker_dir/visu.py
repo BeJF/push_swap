@@ -13,29 +13,6 @@ mod = 2
 speed = 0
 start = 0
 
-#pile = str(random.sample(range(1, 10), 5))
-#pile = (pile.replace(",", "")
- #           .replace("[", "")
-  #          .replace("]", ""))
-#print(pile)
-
-# Get initial data
-# We read the file line by line and store them inside a list.
-# We take the first line (the initial pile), to know the number of datas we will have to sort
-
-#cmd = './push_swap %s | ./checker %s' % (pile, pile)
-#os.system(cmd)
-
-#lines = [line.rstrip('\n') for line in open('piles')]
-#initial_pile = list(map(int,lines[0].split())) 
-#size = len(initial_pile)
-
-# Set other variable for the size of the datas
-#max = max(initial_pile)
-#data_height = (win_height - 200) / size
-#data_width_ratio = (win_width - 200) / max / 2
-#max_x1_a = data_width_ratio * max
-
 
 def create_piles(nb_datas):
     
@@ -57,6 +34,11 @@ def update_pile_a(pile, data_height, data_width_ratio, size) :
         y0 = y1
         size_pile += 1
     for data in pile :
+        if data > 0 :
+            w.itemconfig(pile_a[obj-1], fill="#EBE100", outline="#EBE100")
+        if data < 0 :
+            w.itemconfig(pile_a[obj-1], fill="#A09900", outline="#A09900")
+            data = -data
         y1 = y0 + data_height
         x0 = 50
         x1 = x0 + data * data_width_ratio
@@ -76,6 +58,11 @@ def update_pile_b(pile, data_height, data_width_ratio, max_x1_a, size) :
         y0 = y1
         size_pile += 1
     for data in pile :
+        if data > 0 :
+            w.itemconfig(pile_b[obj-1], fill="#EB0000", outline="#EB0000")
+        if data < 0 :
+            w.itemconfig(pile_b[obj-1], fill="#A60000", outline="#A60000")
+            data = -data
         y1 = y0 + data_height
         x0 = max_x1_a + 150
         x1 = x0 + data * data_width_ratio
@@ -158,9 +145,13 @@ def Set_variables(lines):
     global data_width_ratio
     global max_x1_a
     global max
+    global min
 
     initial_pile = list(map(int,lines[0].split())) 
     max = max(initial_pile)
+    min = min(initial_pile)
+    if -min > max :
+        max = -min
     size = len(initial_pile)
     data_height = (win_height - 200) / size
     data_width_ratio = (win_width - 200) / max / 2
@@ -185,8 +176,9 @@ def Set_nb_datas() :
     global max
     global lines
     nb_datas = int(E1.get())
-    range_data = int(E2.get())
-    pile = str(random.sample(range(1, 1000), nb_datas))
+    range_max = int(E2.get())
+    range_min = int(E3.get())
+    pile = str(random.sample(range(range_min, range_max), nb_datas))
     pile = (pile.replace(",", "")
             .replace("[", "")
             .replace("]", ""))
@@ -198,18 +190,14 @@ def Set_nb_datas() :
     L3.destroy()
     L4.destroy()
     L5.destroy()
+    E3.destroy()
+    L7.destroy()
     ok_button.destroy()
     os.system(cmd)
     
     lines = [line.rstrip('\n') for line in open('piles')]
     Set_variables(lines)
     Set_buttons()
-    '''initial_pile = list(map(int,lines[0].split())) 
-    max = max(initial_pile)
-    size = len(initial_pile)
-    data_height = (win_height - 200) / size
-    data_width_ratio = (win_width - 200) / max / 2
-    max_x1_a = data_width_ratio * max'''
     
     create_piles(nb_datas)
     #create_piles(size)
@@ -223,43 +211,31 @@ master.title(title)
 w = Canvas(master, height=win_height, width=win_width, bg='black')
 w.pack()
 
-L1 = Label(master, bg="black", fg="white", text="Number of datas")
-L1.place(relx=0.5, rely=0.5, anchor=CENTER)
+label_datas = Label(master, bg="black", fg="white", text="Number of datas")
+label_datas.place(relx=0.5, rely=0.5, anchor=CENTER)
 
 E1 = Entry(master)
 E1.place(relx= 0.5, rely= 0.53, anchor=CENTER)
 
-L2 = Label(master, bg="black", fg="white", text="Range")
-L2.place(relx=0.5, rely=0.57, anchor=CENTER)
+L2 = Label(master, bg="black", fg="white", text="Max")
+L2.place(relx=0.55, rely=0.57, anchor=CENTER)
+E2 = Entry(master, width=10)
+E2.place(relx= 0.55, rely= 0.60, anchor=CENTER)
 
-E2 = Entry(master)
-E2.place(relx= 0.5, rely= 0.60, anchor=CENTER)
+E3 = Entry(master, width=10)
+E3.place(relx= 0.45, rely= 0.60, anchor=CENTER)
+L7 = Label(master, bg="black", fg="white", text="Min")
+L7.place(relx=0.45, rely=0.57, anchor=CENTER)
 
 L3 = Label(master, bg="black", fg="white", text="- 19 -", font="Verdana 80 bold")
 L3.place(relx=0.5, rely=0.1, anchor=CENTER)
-L4 = Label(master, bg="black", fg="white", text="The Best Coding School - Asgard", font="Verdana 30 bold")
+L4 = Label(master, bg="black", fg="white", text="The Best Coding School", font="Verdana 30 bold")
 L4.place(relx=0.5, rely=0.2, anchor=CENTER)
-L5 = Label(master, bg="black", fg="white", text="The program will generate a random unsorted pile\n with the number of datas you entered (< 1000),\n within the range you decided (< number datas),\n and will sort it.", font="Verdana 14")
+L5 = Label(master, bg="black", fg="white", text="The program will generate a random unsorted pile\n with the number of datas you entered (< 1000),\n within the range you decided (> number datas),\n and will sort it.", font="Verdana 14")
 L5.place(relx=0.5, rely=0.35, anchor=CENTER)
 
 ok_button = Button(master,text="Ok", width=5, highlightbackground="black", command=Set_nb_datas)
 ok_button.place(relx=0.5, rely=0.65, anchor=CENTER)
 
-
-'''# Set the "Start/Stop/Reset button"
-Pause = StringVar()
-Pause.set("Start")
-go = Button(master, width=20, textvariable = Pause, highlightbackground="black", command = Start) #command = start
-go.place(x=500, y=25)
-
-# Set the "Speed up" and "Slow down" buttons
-slow_down_button = Button(master, width=10, text = "Speed Up", highlightbackground="black", command = Speed_up)
-slow_down_button.place(x=485, y=50)
-speed_up_button = Button(master, width=10, text = "Slow Down", highlightbackground="black", command = Slow_down)
-speed_up_button.place(x=605, y=50)'''
-
-# Launch the fcking algo to display the piles being sorted
-#create_piles(size)
-#display()
 
 master.mainloop()
