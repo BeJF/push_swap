@@ -6,7 +6,7 @@
 /*   By: jfinet <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/28 19:08:35 by jfinet            #+#    #+#             */
-/*   Updated: 2018/12/17 15:18:40 by jfinet           ###   ########.fr       */
+/*   Updated: 2018/12/18 17:13:46 by jfinet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,6 @@ void		first_sort(t_struct *node, int data2sort)
 
 	max = get_max(node->pile_a, data2sort);
 	set_nul(node);
-	//pivot = pivot_selector(node->pile_a, data2sort, node->size_a - 1);
 	pivot = get_median(node->pile_a, data2sort, node->size_a - 1);
 	if (data2sort <= 6)
 	{

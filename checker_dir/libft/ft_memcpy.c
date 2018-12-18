@@ -6,7 +6,7 @@
 /*   By: jfinet <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/13 20:37:29 by jfinet            #+#    #+#             */
-/*   Updated: 2018/12/17 13:47:47 by jfinet           ###   ########.fr       */
+/*   Updated: 2018/12/18 14:39:34 by jfinet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,12 @@
 
 void			*ft_memcpy(void *dst, const void *src, size_t n)
 {
-	//char		*cdst;
-	//const char	*csrc;
+	char		*cdst;
+	const char	*csrc;
 
-	//cdst = (char*)dst;
-	//csrc = (const char*)src;
+	cdst = (char*)dst;
+	csrc = (const char*)src;
 	while (n--)
-		*dst++ = *src;
-		//*cdst++ = *csrc++;
+		*cdst++ = *csrc++;
 	return (dst);
 }

@@ -6,7 +6,7 @@
 /*   By: jfinet <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/10 18:38:11 by jfinet            #+#    #+#             */
-/*   Updated: 2018/12/17 14:20:23 by jfinet           ###   ########.fr       */
+/*   Updated: 2018/12/18 17:12:54 by jfinet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,6 @@ typedef struct	s_struct
 
 	int		*pile_b;
 	int		size_b;
-
-	int		*pile_c;
-	int		size_c;
 
 	int		rotated;
 	int		pushed;

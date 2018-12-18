@@ -13,7 +13,6 @@ mod = 2
 speed = 0
 start = 0
 
-
 def create_piles(nb_datas):
     
     while nb_datas >= 0 : 
@@ -171,27 +170,28 @@ def Set_buttons() :
     slow_down_button.place(x=485, y=50)
     speed_up_button = Button(master, width=10, text = "Slow Down", highlightbackground="black", command = Slow_down)
     speed_up_button.place(x=605, y=50)
+    
 
 def Set_nb_datas() :
     global max
     global lines
-    nb_datas = int(E1.get())
-    range_max = int(E2.get())
-    range_min = int(E3.get())
+    nb_datas = int(entry_datas.get())
+    range_max = int(entry_max.get())
+    range_min = int(entry_min.get())
     pile = str(random.sample(range(range_min, range_max), nb_datas))
     pile = (pile.replace(",", "")
             .replace("[", "")
             .replace("]", ""))
     cmd = './push_swap %s | ./checker %s' % (pile, pile)
-    L1.destroy()
-    E1.destroy()
-    L2.destroy()
-    E2.destroy()
-    L3.destroy()
-    L4.destroy()
-    L5.destroy()
-    E3.destroy()
-    L7.destroy()
+    label_datas.destroy()
+    entry_datas.destroy()
+    label_max.destroy()
+    entry_max.destroy()
+    label_min.destroy()
+    entry_min.destroy()
+    label_19.destroy()
+    label_best.destroy()
+    label_descri.destroy()
     ok_button.destroy()
     os.system(cmd)
     
@@ -200,7 +200,6 @@ def Set_nb_datas() :
     Set_buttons()
     
     create_piles(nb_datas)
-    #create_piles(size)
     display(lines)
     print(nb_datas)
 
@@ -210,30 +209,29 @@ title = "VISU PUSH_SWAP     \u00A9jfinet"
 master.title(title)
 w = Canvas(master, height=win_height, width=win_width, bg='black')
 w.pack()
-
+# Nb datas
 label_datas = Label(master, bg="black", fg="white", text="Number of datas")
 label_datas.place(relx=0.5, rely=0.5, anchor=CENTER)
-
-E1 = Entry(master)
-E1.place(relx= 0.5, rely= 0.53, anchor=CENTER)
-
-L2 = Label(master, bg="black", fg="white", text="Max")
-L2.place(relx=0.55, rely=0.57, anchor=CENTER)
-E2 = Entry(master, width=10)
-E2.place(relx= 0.55, rely= 0.60, anchor=CENTER)
-
-E3 = Entry(master, width=10)
-E3.place(relx= 0.45, rely= 0.60, anchor=CENTER)
-L7 = Label(master, bg="black", fg="white", text="Min")
-L7.place(relx=0.45, rely=0.57, anchor=CENTER)
-
-L3 = Label(master, bg="black", fg="white", text="- 19 -", font="Verdana 80 bold")
-L3.place(relx=0.5, rely=0.1, anchor=CENTER)
-L4 = Label(master, bg="black", fg="white", text="The Best Coding School", font="Verdana 30 bold")
-L4.place(relx=0.5, rely=0.2, anchor=CENTER)
-L5 = Label(master, bg="black", fg="white", text="The program will generate a random unsorted pile\n with the number of datas you entered (< 1000),\n within the range you decided (> number datas),\n and will sort it.", font="Verdana 14")
-L5.place(relx=0.5, rely=0.35, anchor=CENTER)
-
+entry_datas = Entry(master)
+entry_datas.place(relx= 0.5, rely= 0.53, anchor=CENTER)
+# Max
+label_max = Label(master, bg="black", fg="white", text="Max")
+label_max.place(relx=0.55, rely=0.57, anchor=CENTER)
+entry_max = Entry(master, width=10)
+entry_max.place(relx= 0.55, rely= 0.60, anchor=CENTER)
+# Min
+entry_min = Entry(master, width=10)
+entry_min.place(relx= 0.45, rely= 0.60, anchor=CENTER)
+label_min = Label(master, bg="black", fg="white", text="Min")
+label_min.place(relx=0.45, rely=0.57, anchor=CENTER)
+# Text
+label_19 = Label(master, bg="black", fg="white", text="- 19 -", font="Verdana 80 bold")
+label_19.place(relx=0.5, rely=0.1, anchor=CENTER)
+label_best = Label(master, bg="black", fg="white", text="The Best Coding School", font="Verdana 30 bold")
+label_best.place(relx=0.5, rely=0.2, anchor=CENTER)
+label_descri = Label(master, bg="black", fg="white", text="The program will generate a random unsorted pile\n with the number of datas you entered (< 1000),\n within the range you decided (> number datas),\n and will sort it.", font="Verdana 14")
+label_descri.place(relx=0.5, rely=0.35, anchor=CENTER)
+# Ok button
 ok_button = Button(master,text="Ok", width=5, highlightbackground="black", command=Set_nb_datas)
 ok_button.place(relx=0.5, rely=0.65, anchor=CENTER)
 

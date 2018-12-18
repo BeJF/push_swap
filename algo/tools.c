@@ -6,7 +6,7 @@
 /*   By: jfinet <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/27 14:33:35 by jfinet            #+#    #+#             */
-/*   Updated: 2018/12/17 15:14:29 by jfinet           ###   ########.fr       */
+/*   Updated: 2018/12/18 17:13:27 by jfinet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,6 @@ int		pivot_selector(int *tab, int size, int top)
 	pivot = total / size;
 	return (pivot);
 }
-
-/*int		pivot_selector2(int *tab, int size, t_struct *node)
-{
-		
-}*/
 
 int		checkif_b_sorted(t_struct *node, int data2sort)
 {

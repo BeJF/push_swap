@@ -6,7 +6,7 @@
 /*   By: jfinet <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/28 20:12:42 by jfinet            #+#    #+#             */
-/*   Updated: 2018/12/17 14:20:39 by jfinet           ###   ########.fr       */
+/*   Updated: 2018/12/18 17:12:47 by jfinet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,11 +66,6 @@ int			main(int argc, char **argv)
 	if (argc > 2)
 		if (mk_piles(node, argc, argv) == 1)
 			return (put_error(node));
-	node->pile_c = (int*)malloc(sizeof(int) * node->size_a);
-	node->pile_c = ft_memcpy(node->pile_c, node->pile_a, node->size_a);
-	node->size_c = node->size_a;
-	ft_quicksort(node->pile_c, 0, node->size_a - 1);	
-	print_piles(node);
 	if (check_duplicates(node) == 1)
 		return (put_error(node));
 	if (checkif_a_sorted(node, node->size_a) == 1)

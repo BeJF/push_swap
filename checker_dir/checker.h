@@ -6,7 +6,7 @@
 /*   By: jfinet <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/10 18:38:11 by jfinet            #+#    #+#             */
-/*   Updated: 2018/12/12 16:02:39 by jfinet           ###   ########.fr       */
+/*   Updated: 2018/12/18 17:08:05 by jfinet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,12 +45,12 @@ void			push_on_b(t_struct *node);
 void			rev_rotate_a(t_struct *node);
 void			rev_rotate_b(t_struct *node);
 
-void			print_pile(int *pile_a, int *pile_b, t_struct *node);
 int				*new_tab(int size);
 int				call_instructions(char *line, t_struct *node);
 int				check_duplicates(t_struct *node);
 int				check_errors_atoi(int data, char *arg);
 int				mk_piles_2args(t_struct *node, char **argv);
 int				mk_piles(t_struct *node, int argc, char **argv);
+void			print_piles(t_struct *node, FILE *file);
 
 #endif

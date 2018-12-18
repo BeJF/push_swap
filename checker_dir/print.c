@@ -1,26 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   print.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jfinet <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/06/13 20:37:29 by jfinet            #+#    #+#             */
-/*   Updated: 2018/12/17 14:08:38 by jfinet           ###   ########.fr       */
+/*   Created: 2018/12/18 17:04:49 by jfinet            #+#    #+#             */
+/*   Updated: 2018/12/18 17:07:33 by jfinet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
+#include "checker.h"
 
-void			*ft_memcpy(void *dst, const void *src, size_t n)
+void	print_piles(t_struct *node, FILE *file)
 {
-	int			*cdst;
-	const int	*csrc;
+	int size_a;
+	int size_b;
 
-	cdst = (int*)dst;
-	csrc = (const int*)src;
-	while (n--)
-		*cdst++ = *csrc++;
-		//*dst++ = *src;
-	return (dst);
+	size_a = node->size_a;
+	size_b = node->size_b;
+	while (size_a--)
+		fprintf(file, "%d ", node->pile_a[size_a]);
+	fprintf(file, "\n");
+	while (size_b--)
+		fprintf(file, "%d ", node->pile_b[size_b]);
+	fprintf(file, "\n");
 }
