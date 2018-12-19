@@ -6,7 +6,7 @@
 /*   By: jfinet <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/14 12:55:51 by jfinet            #+#    #+#             */
-/*   Updated: 2018/09/11 13:49:31 by jfinet           ###   ########.fr       */
+/*   Updated: 2018/12/19 13:26:00 by jfinet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,9 @@
 # include <string.h>
 # include <stdlib.h>
 # include <unistd.h>
+# include <limits.h>
+
+# define BUFF_SIZE_GNL 10
 
 typedef struct		s_list
 {

@@ -6,11 +6,12 @@
 /*   By: jfinet <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/24 15:59:26 by jfinet            #+#    #+#             */
-/*   Updated: 2018/10/04 23:33:10 by jfinet           ###   ########.fr       */
+/*   Updated: 2018/12/19 15:51:31 by jfinet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+#include <stdio.h>
 
 static t_line	*mano(t_line *begin, char *str, const int fd)
 {
@@ -78,7 +79,7 @@ static void		free_node(t_line **begin, int fd)
 			temp->next = temp->next->next;
 			free(delete);
 			return ;
-		}
+		}	
 		temp = temp->next;
 	}
 }
@@ -128,7 +129,11 @@ int				get_next_line(const int fd, char **line)
 		stock = (!stock ? ft_strdup("") : stock);
 		tmpstock = stock;
 		stock = ft_strjoinup(stock, buf, ret);
+		printf("ret=%d\n", ret);
+		printf("stock=%s\n", stock);
+		printf("tmpstock = %s|\n", tmpstock);
 		free(tmpstock);
+		printf("stock2 =%s\n", stock);
 	}
 	if (stock == NULL)
 		return (0);

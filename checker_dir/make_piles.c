@@ -6,7 +6,7 @@
 /*   By: jfinet <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/01 13:55:10 by jfinet            #+#    #+#             */
-/*   Updated: 2018/12/18 17:02:37 by jfinet           ###   ########.fr       */
+/*   Updated: 2018/12/19 11:30:52 by jfinet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,6 +93,8 @@ int	mk_piles_2args(t_struct *node, char **argv)
 	node->size_a = nb_data;
 	node->pile_a = new_tab(nb_data);
 	node->pile_b = new_tab(nb_data);
+	if (node->pile_a == NULL || node->pile_b == NULL)
+		return (1);
 	if (arg_to_tab(node, argv, nb_data) == 1)
 		return (1);
 	return (0);
@@ -107,6 +109,8 @@ int	mk_piles(t_struct *node, int argc, char **argv)
 	node->size_a = argc - 1;
 	node->pile_a = new_tab(argc);
 	node->pile_b = new_tab(argc);
+	if (node->pile_a == NULL || node->pile_b == NULL)
+		return (1);
 	while (argc > 1)
 	{
 		if (only_nb_checker(argv, argc - 1) == 1)
