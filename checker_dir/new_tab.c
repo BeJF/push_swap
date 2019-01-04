@@ -6,7 +6,7 @@
 /*   By: jfinet <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/10 20:13:10 by jfinet            #+#    #+#             */
-/*   Updated: 2018/10/01 15:55:52 by jfinet           ###   ########.fr       */
+/*   Updated: 2019/01/04 16:21:59 by jfinet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,15 @@
 int	*new_tab(int size)
 {
 	int *tab;
+	int i;
 
-	if (!(tab = (int*)malloc(sizeof(int) * size)))
+	i = 0;
+	if (!(tab = (int*)malloc(sizeof(int) * (size + 1))))
 		return (NULL);
-	while (size--)
-		tab[size] = '\0';
+	while (i <= size)
+	{
+		tab[i] = '\0';
+		i++;
+	}
 	return (tab);
 }

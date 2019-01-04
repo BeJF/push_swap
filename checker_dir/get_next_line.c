@@ -3,141 +3,63 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jfinet <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: dda-silv <dda-silv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/07/24 15:59:26 by jfinet            #+#    #+#             */
-/*   Updated: 2018/12/19 15:51:31 by jfinet           ###   ########.fr       */
+/*   Created: 2014/12/06 21:40:39 by dda-silv          #+#    #+#             */
+/*   Updated: 2019/01/04 16:58:41 by jfinet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "./libft/libft.h"
 #include "get_next_line.h"
-#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
 
-static t_line	*mano(t_line *begin, char *str, const int fd)
+int	read_from_fd_into_stock(int const fd, char **stock)
 {
-	t_line	*node;
-	t_line	*temp;
+	static char	buff[BUFF_SIZE+1] = { ENDL };
+	int			read_bytes;
+    char        *nstr;
 
-	if (!(node = (t_line*)malloc(sizeof(t_line))))
-		return (NULL);
-	node->fd = fd;
-	node->str = str;
-	node->next = NULL;
-	if (begin == NULL)
-		return (node);
-	temp = begin;
-	while (temp->next)
-		temp = temp->next;
-	temp->next = node;
-	return (begin);
+	read_bytes = read(fd, buff, BUFF_SIZE);
+	if (read_bytes > 0)
+	{
+        buff[read_bytes] = '\0';
+        nstr = ft_strjoin(*stock, buff);
+        if (!nstr)
+            return (-1);
+        free(*stock);
+        *stock = nstr;
+	}
+	return (read_bytes);
 }
 
-static char		*get_line(char **str)
+int get_next_line(int const fd, char ** line)
 {
-	char	reader[2];
-	char	*temp;
-	char	*test;
+	static char	*stock = NULL;
+	char		*endl_index;
+    int         ret;
 
-	test = ft_strdup("");
-	while (**str != '\n' && **str != '\0')
+    if (!stock && (stock = (char *)ft_memalloc(sizeof(char))) == NULL)
+        return (-1);
+	endl_index = ft_strchr(stock, ENDL);
+	while (endl_index == NULL)
 	{
-		if (!test)
-			test = ft_strdup("");
-		temp = test;
-		reader[0] = **str;
-		reader[1] = '\0';
-		test = ft_strjoin(test, reader);
-		free(temp);
-		(*str)++;
+        ret = read_from_fd_into_stock(fd, &stock);
+        if (ret == 0)
+        {
+            if ( (endl_index = ft_strchr(stock, '\0')) == stock )
+                return (0);
+        } else if (ret < 0)
+            return (-1);
+        else
+            endl_index = ft_strchr(stock, ENDL);
 	}
-	if (**str == '\n')
-		(*str)++;
-	return (test);
-}
-
-static void		free_node(t_line **begin, int fd)
-{
-	t_line *temp;
-	t_line *delete;
-
-	temp = (*begin);
-	while (temp)
-	{
-		if (temp->fd == fd)
-		{
-			delete = temp;
-			if (temp->next != NULL)
-				temp = temp->next;
-			else
-				begin = NULL;
-			free(delete);
-			return ;
-		}
-		if (temp->next->fd == fd)
-		{
-			delete = temp->next;
-			temp->next = temp->next->next;
-			free(delete);
-			return ;
-		}	
-		temp = temp->next;
-	}
-}
-
-static int		find_fd(int fd, t_line *begin, char **line)
-{
-	t_line *temp;
-
-	temp = begin;
-	if (begin != NULL)
-	{
-		while (temp)
-		{
-			if (temp->fd == fd)
-			{
-				if (*temp->str == '\0')
-				{
-					free_node(&begin, fd);
-					return (0);
-				}
-				*line = get_line(&temp->str);
-				return (1);
-			}
-			temp = temp->next;
-		}
-	}
-	return (2);
-}
-
-int				get_next_line(const int fd, char **line)
-{
-	int				ret;
-	char			buf[BUFF_SIZE + 1];
-	char			*stock;
-	char			*tmpstock;
-	static t_line	*begin = NULL;
-
-	if (fd < 0 || line == NULL)
-		return (-1);
-	if ((ret = find_fd(fd, begin, line)) != 2)
-		return (ret);
-	stock = NULL;
-	while ((ret = read(fd, buf, BUFF_SIZE)))
-	{
-		if (ret == -1)
-			return (-1);
-		stock = (!stock ? ft_strdup("") : stock);
-		tmpstock = stock;
-		stock = ft_strjoinup(stock, buf, ret);
-		printf("ret=%d\n", ret);
-		printf("stock=%s\n", stock);
-		printf("tmpstock = %s|\n", tmpstock);
-		free(tmpstock);
-		printf("stock2 =%s\n", stock);
-	}
-	if (stock == NULL)
-		return (0);
-	*line = get_line(&stock);
-	begin == NULL ? begin = mano(begin, stock, fd) : mano(begin, stock, fd);
+    *line = ft_strsub(stock, 0, endl_index - stock);
+    if (!*line)
+        return (-1);
+    endl_index = ft_strdup(endl_index + 1);
+    free(stock);
+    stock = endl_index;
 	return (1);
 }

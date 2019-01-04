@@ -6,7 +6,7 @@
 /*   By: jfinet <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/28 20:12:42 by jfinet            #+#    #+#             */
-/*   Updated: 2018/12/18 17:12:47 by jfinet           ###   ########.fr       */
+/*   Updated: 2019/01/03 08:59:04 by jfinet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,11 +55,11 @@ int			main(int argc, char **argv)
 	int			pivot;
 	t_struct	*node;
 
+	if (argc == 1)
+		return (1);
 	if (!(node = (t_struct*)malloc(sizeof(t_struct))))
 		return (1);
 	set_nul(node);
-	if (argc == 1)
-		return (1);
 	if (argc == 2)
 		if (mk_piles_2args(node, argv) == 1)
 			return (put_error(node));
