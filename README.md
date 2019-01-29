@@ -11,8 +11,8 @@ The ruby command gives shuffled data (here 100) as parameter to the program.
 The program receives from the standard input the numbers to place on the pile A. Read the operations from the standard output and check if the pile is sorted after having done the operations. Display "OK" on the standard output if the pile is sorted or "KO" if it doesn't.
 
 USAGE => 
-1) ARG=\`ruby -e "puts (1..500).to_a.shuffle.join(' ')"\`
-2) ./push_swap $ARG | ./checker $ARG
+* ARG=\`ruby -e "puts (1..500).to_a.shuffle.join(' ')"\`
+* ./push_swap $ARG | ./checker $ARG
 
 # The visualizer :
 
