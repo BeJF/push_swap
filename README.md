@@ -9,6 +9,9 @@ The program receives from the standard input the numbers to place on the pile A.
 
 # The commands :
 sa/sb - SWAP the first two data on top of the pile(A/B). 
+
 pa/pb - PUSH the first data from the top of the pile(B/A) on top of the pile (A/B).
+
 ra/rb: ROTATE the data on top of the pile (A/B). The data on top becomes the data on the bottom.
+
 rra/rrb: REVERSE ROTATE the data from the bottom of the pile (A/B). The data from the bottom becomes the data on top.
