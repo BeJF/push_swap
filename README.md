@@ -19,6 +19,8 @@ USAGE =>
 
 # The visualizer :
 
+USAGE => 
+* python3 visu.py
 
 # The operations :
 sa/sb - SWAP the first two data on top of the pile(A/B). 
