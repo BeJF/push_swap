@@ -6,7 +6,7 @@ The program receives from the standard input the numbers to sort. The algorithm 
 
 USAGE => 
 
-./push_swap \`ruby -e "puts (0..100).to_a.shuffle.join(' ')"\`
+* ./push_swap \`ruby -e "puts (0..100).to_a.shuffle.join(' ')"\`
 
 The ruby command gives shuffled data (here 100) as parameter to the program.
 
