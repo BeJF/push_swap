@@ -5,7 +5,8 @@ Project from the 19 Coding School. The goal is to sort data with the help of two
 The program receives from the standard input the numbers to sort. The algorithm is based on a Quick-Sort twisted in a way to respect the given rules. It puts on the standard output the operations to make to sort the pile.
 
 USAGE => 
-./push_swap \`ruby -e "puts (0..100).to_a.shuffle.join(' ')"\` <br/>
+./push_swap \`ruby -e "puts (0..100).to_a.shuffle.join(' ')"\`
+
 The ruby command gives shuffled data (here 100) as parameter to the program.
 
 # Checker :
