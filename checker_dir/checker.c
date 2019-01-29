@@ -6,7 +6,7 @@
 /*   By: jfinet <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/10 14:31:56 by jfinet            #+#    #+#             */
-/*   Updated: 2019/01/04 16:43:37 by jfinet           ###   ########.fr       */
+/*   Updated: 2019/01/29 15:41:54 by jfinet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,24 +16,23 @@ static int	read_instructions(t_struct *node)
 {
 	char	*line;
 	int		fd;
-	//FILE	*file;
+	FILE	*file;
 
-	//file = fopen("piles", "w");
+	file = fopen("piles", "w");
 	fd = 0;
 	line = NULL;
 	while (get_next_line(fd, &line))
 	{
-		//print_piles(node, file);
+		print_piles(node, file);
 		if (call_instructions(line, node) == 1)
 		{
 			free(line);
-			//fclose(file);
 			return (1);
 		}
 		free(line);
 	}
-	//print_piles(node, file);
-	//fclose(file);
+	print_piles(node, file);
+	fclose(file);
 	return (0);
 }
 

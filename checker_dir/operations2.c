@@ -6,7 +6,7 @@
 /*   By: jfinet <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/01 16:01:40 by jfinet            #+#    #+#             */
-/*   Updated: 2018/10/02 21:49:17 by jfinet           ###   ########.fr       */
+/*   Updated: 2019/01/29 15:07:18 by jfinet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ void	rotate_a(t_struct *node)
 
 	pile_a = node->pile_a;
 	size_a = node->size_a;
+	if (size_a <= 0)
+		return ;
 	temp = pile_a[size_a - 1];
 	while (size_a > 1)
 	{
@@ -37,6 +39,8 @@ void	rotate_b(t_struct *node)
 
 	pile_b = node->pile_b;
 	size_b = node->size_b;
+	if (size_b <= 0)
+		return ;
 	temp = pile_b[size_b - 1];
 	while (size_b > 1)
 	{
@@ -55,6 +59,8 @@ void	rev_rotate_b(t_struct *node)
 
 	pile_b = node->pile_b;
 	size_b = node->size_b;
+	if (size_b <= 0)
+		return ;
 	i = 0;
 	temp = pile_b[0];
 	while (i < size_b)
@@ -74,6 +80,8 @@ void	rev_rotate_a(t_struct *node)
 
 	pile_a = node->pile_a;
 	size_a = node->size_a;
+	if (size_a <= 0)
+		return ;
 	i = 0;
 	temp = pile_a[0];
 	while (i < size_a)

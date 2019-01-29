@@ -6,7 +6,7 @@
 /*   By: jfinet <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/30 12:49:15 by jfinet            #+#    #+#             */
-/*   Updated: 2018/12/19 14:00:43 by jfinet           ###   ########.fr       */
+/*   Updated: 2019/01/29 15:08:16 by jfinet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	call_instructions2(char *line, t_struct *node)
 {
-	if (ft_strcmp("ss", line) == 0 && node->size_a >= 2 && node->size_b >= 2)
+	if (ft_strcmp("ss", line) == 0)
 	{
 		swap_a(node);
 		swap_b(node);
@@ -40,13 +40,13 @@ int	call_instructions(char *line, t_struct *node)
 	int ret;
 
 	ret = 0;
-	if (ft_strcmp("sa", line) == 0 && node->size_a >= 2)
+	if (ft_strcmp("sa", line) == 0)
 		swap_a(node);
-	else if (ft_strcmp("sb", line) == 0 && node->size_b >= 2)
+	else if (ft_strcmp("sb", line) == 0)
 		swap_b(node);
-	else if (ft_strcmp("pa", line) == 0 && node->size_b >= 1)
+	else if (ft_strcmp("pa", line) == 0)
 		push_on_a(node);
-	else if (ft_strcmp("pb", line) == 0 && node->size_a >= 1)
+	else if (ft_strcmp("pb", line) == 0)
 		push_on_b(node);
 	else if (ft_strcmp("ra", line) == 0)
 		rotate_a(node);

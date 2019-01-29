@@ -3,19 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dda-silv <dda-silv@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jfinet <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/12/06 21:41:01 by dda-silv          #+#    #+#             */
-/*   Updated: 2014/12/06 22:48:56 by dda-silv         ###   ########.fr       */
+/*   Created: 2019/01/29 16:28:10 by jfinet            #+#    #+#             */
+/*   Updated: 2019/01/29 16:28:18 by jfinet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
 
-# define BUFF_SIZE 32
-# define ENDL '\n'
+# define BUFF_SIZE 19
 
-int get_next_line(int const fd, char **line);
+# include <unistd.h>
+# include <stdlib.h>
+# include "libft/libft.h"
+
+int		get_next_line(int const fd, char **line);
 
 #endif

@@ -25,7 +25,7 @@ def update_pile_a(pile, data_height, data_width_ratio, size) :
     obj = 1
     size_pile = len(pile)
     y0 = 150
-    # The while loop is used to undisplayed some datas
+    # The while loop is used to undisplayed some data
     while (size_pile < size) :
         y1 = y0 + data_height
         w.coords(pile_a[obj - 1], 0, 0, 0, 0)
@@ -172,7 +172,7 @@ def Set_buttons() :
     speed_up_button.place(x=605, y=50)
     
 
-def Set_nb_datas() :
+def Set_nb_data() :
     global max
     global lines
     nb_datas = int(entry_datas.get())
@@ -210,7 +210,7 @@ master.title(title)
 w = Canvas(master, height=win_height, width=win_width, bg='black')
 w.pack()
 # Nb datas field
-label_datas = Label(master, bg="black", fg="white", text="Number of datas")
+label_datas = Label(master, bg="black", fg="white", text="Number of data")
 label_datas.place(relx=0.5, rely=0.5, anchor=CENTER)
 entry_datas = Entry(master)
 entry_datas.place(relx= 0.5, rely= 0.53, anchor=CENTER)
@@ -229,10 +229,10 @@ label_19 = Label(master, bg="black", fg="white", text="- 19 -", font="Verdana 80
 label_19.place(relx=0.5, rely=0.1, anchor=CENTER)
 label_best = Label(master, bg="black", fg="white", text="The Best Coding School", font="Verdana 30 bold")
 label_best.place(relx=0.5, rely=0.2, anchor=CENTER)
-label_descri = Label(master, bg="black", fg="white", text="The program will generate a random unsorted pile\n with the number of datas you entered (< 1000),\n within the range you decided (> number datas),\n and will sort it.", font="Verdana 14")
+label_descri = Label(master, bg="black", fg="white", text="The program will generate a random unsorted pile\n with the number of data you entered (< 1000),\n within the range you decided (> number data),\n and will sort it.", font="Verdana 14")
 label_descri.place(relx=0.5, rely=0.35, anchor=CENTER)
-# Ok button => start when click and call "set_nb_datas" function
-ok_button = Button(master,text="Ok", width=5, highlightbackground="black", command=Set_nb_datas)
+# Ok button => start when click and call "set_nb_data" function
+ok_button = Button(master,text="Ok", width=5, highlightbackground="black", command=Set_nb_data)
 ok_button.place(relx=0.5, rely=0.65, anchor=CENTER)
 
 
