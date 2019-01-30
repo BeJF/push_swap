@@ -19,6 +19,8 @@ USAGE =>
 * ARG=\`ruby -e "puts (1..500).to_a.shuffle.join(' ')"\`
 * ./push_swap $ARG | ./checker $ARG
 
+<code> ARG=\`ruby -e "puts (1..500).to_a.shuffle.join(' ')"\` </code>
+
 # The visualizer :
 USAGE => 
 * python3 visu.py
