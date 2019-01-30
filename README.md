@@ -10,7 +10,7 @@ Project from the 19 Coding School. The goal is to sort data with the help of two
 # Push-swap :
 The program receives from the standard input the numbers to sort. The algorithm is based on a Quick-Sort twisted in a way to respect the given rules. It puts on the standard output the operations to make to sort the pile.
 
-USAGE => 
+### USAGE => 
 
 <code> ./push_swap \`ruby -e "puts (0..100).to_a.shuffle.join(' ')"\` </code>
 
@@ -19,14 +19,14 @@ The ruby command gives shuffled data (here 100) as parameter to the program.
 # Checker :
 The program receives from the standard input the numbers to place on the pile A. Read the operations from the standard output and check if the pile is sorted after having done the operations. Display "OK" on the standard output if the pile is sorted or "KO" if it doesn't.
 
-USAGE => 
+###USAGE => 
 
 <code> ARG=\`ruby -e "puts (1..500).to_a.shuffle.join(' ')"\` </code>
 
 <code> ./push_swap $ARG | ./checker $ARG </code>
 
 # The visualizer :
-USAGE => 
+### USAGE => 
 
 <code> python3 visu.py </code>
 
