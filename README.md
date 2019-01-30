@@ -23,7 +23,7 @@ USAGE =>
 
 # The visualizer :
 USAGE => 
-* python3 visu.py
+<code> python3 python </code>
 
 ![](visu.gif)
 
