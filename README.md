@@ -31,3 +31,8 @@ pa/pb - PUSH the first data from the top of the pile(B/A) on top of the pile (A/
 ra/rb: ROTATE the data on top of the pile (A/B). The data on top becomes the data on the bottom.
 
 rra/rrb: REVERSE ROTATE the data from the bottom of the pile (A/B). The data from the bottom becomes the data on top.
+
+## Side notes :
+
+python file is well organized but the use of global variables is pretty messy.
+the use of the norm doesnt make sense in some functions of the algo
