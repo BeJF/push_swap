@@ -18,9 +18,10 @@ USAGE =>
 * ./push_swap $ARG | ./checker $ARG
 
 # The visualizer :
-![](visu.gif)
 USAGE => 
 * python3 visu.py
+
+![](visu.gif)
 
 # The operations :
 sa/sb - SWAP the first two data on top of the pile(A/B). 
