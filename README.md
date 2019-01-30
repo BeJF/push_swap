@@ -18,7 +18,7 @@ USAGE =>
 * ./push_swap $ARG | ./checker $ARG
 
 # The visualizer :
-
+![](Jan-30-2019 11-19-22.gif)
 USAGE => 
 * python3 visu.py
 
