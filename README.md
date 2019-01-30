@@ -8,6 +8,8 @@ The program receives from the standard input the numbers to sort. The algorithm 
 
 USAGE => 
 
+<code> ./push_swap \`ruby -e "puts (0..100).to_a.shuffle.join(' ')"\` </code>
+
 * ./push_swap \`ruby -e "puts (0..100).to_a.shuffle.join(' ')"\`
 
 The ruby command gives shuffled data (here 100) as parameter to the program.
@@ -23,7 +25,8 @@ USAGE =>
 
 # The visualizer :
 USAGE => 
-<code> python3 python </code>
+
+<code> python3 visu.py </code>
 
 ![](visu.gif)
 
