@@ -1,6 +1,8 @@
 # The project :
 Project from the 19 Coding School. The goal is to sort data with the help of two piles and given operations you can apply on it. It has to be done with the smallest number of operations.
 
+==> ajout des trucs appris
+
 # Push-swap :
 The program receives from the standard input the numbers to sort. The algorithm is based on a Quick-Sort twisted in a way to respect the given rules. It puts on the standard output the operations to make to sort the pile.
 
