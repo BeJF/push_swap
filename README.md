@@ -18,6 +18,7 @@ The program receives from the standard input the numbers to place on the pile A.
 USAGE => 
 
 <code> ARG=\`ruby -e "puts (1..500).to_a.shuffle.join(' ')"\` </code>
+
 <code> ./push_swap $ARG | ./checker $ARG </code>
 
 # The visualizer :
